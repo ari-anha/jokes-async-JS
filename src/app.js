@@ -1,21 +1,20 @@
 const express = require('express');
 
 const app = express();
-app.use(express.json());
 
 const {
   mainController,
-  serveJokes,
-  serveOneJoke,
-  servePersonalJoke
+  jokesController,
+  randomJokeController,
+  personalJokeController
 } = require('../src/controller.js')
 
 app.get('/', mainController);
 
-app.get('/jokes', serveJokes);
+app.get('/jokes', jokesController);
 
-app.get('/joke/random', serveOneJoke);
+app.get('/jokes/random', randomJokeController);
 
-app.get('/joke/random/personal/:first/:last', servePersonalJoke);
+app.get('/jokes/random/personal/:first/:last', personalJokeController);
 
 module.exports = app;
