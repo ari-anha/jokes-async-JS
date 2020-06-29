@@ -3,13 +3,12 @@ const express = require('express');
 const app = express();
 
 const {
-  mainController,
   jokesController,
   randomJokeController,
   personalJokeController
 } = require('../src/controller.js')
 
-app.get('/', mainController);
+app.use(express.static('public'));
 
 app.get('/jokes', jokesController);
 
